@@ -11,7 +11,7 @@ from .schema import AnalyzerResult
 
 AIPIPE_URL = "https://aipipe.org/openrouter/v1/chat/completions"
 # AIPIPE_TOKEN = os.getenv("AIPIPE_TOKEN")  # set this in env
-AIPIPE_TOKEN ="eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6IjIyZjMwMDMwMDFAZHMuc3R1ZHkuaWl0bS5hYy5pbiJ9.tMBWVJHN3ao6zRRwRX59FNfuVgp4ZGVhEshf1Bn3g4U"
+AIPIPE_TOKEN =os.getenv("AIPIPE_TOKEN")
 
 # load prompt template
 PROMPT_PATH = os.path.join(os.path.dirname(__file__), "prompts", "analyzer_prompt.txt")
@@ -138,3 +138,4 @@ def _extract_json_from_text(text: str) -> str:
                 pass
         i += 1
     return None
+
