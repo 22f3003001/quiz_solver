@@ -12,10 +12,9 @@ app = FastAPI(title="LLM Quiz Solver")
 logger = setup_logger(__name__)
 
 # Load secret from environment
-EXPECTED_SECRET = os.getenv("QUIZ_SECRET", "your-secret-here")
-EXPECTED_EMAIL = os.getenv("QUIZ_EMAIL", "your-email@example.com")
-EXPECTED_SECRET="13disha13"
-EXPECTED_EMAIL="22f3003001@ds.study.iitm.ac.in"
+EXPECTED_SECRET = os.getenv("QUIZ_SECRET")
+EXPECTED_EMAIL = os.getenv("QUIZ_EMAIL")
+
 
 class QuizRequest(BaseModel):
     email: str
@@ -76,4 +75,5 @@ async def validation_exception_handler(request: Request, exc: ValidationError):
 if __name__ == "__main__":
     import uvicorn
     port = int(os.getenv("PORT", 7860))  # HuggingFace Space uses 7860
+
     uvicorn.run(app, host="0.0.0.0", port=port)
