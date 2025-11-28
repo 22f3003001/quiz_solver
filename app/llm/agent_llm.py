@@ -9,8 +9,7 @@ from utils.logger import setup_logger
 logger = setup_logger(__name__)
 
 AIPIPE_URL = "https://aipipe.org/openrouter/v1/chat/completions"
-AIPIPE_TOKEN = os.getenv("AIPIPE_TOKEN", "eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6IjIyZjMwMDMwMDFAZHMuc3R1ZHkuaWl0bS5hYy5pbiJ9.tMBWVJHN3ao6zRRwRX59FNfuVgp4ZGVhEshf1Bn3g4U")
-
+AIPIPE_TOKEN = os.getenv("AIPIPE_TOKEN")
 # Load agent prompt
 AGENT_PROMPT_PATH = os.path.join(
     os.path.dirname(__file__), "prompts", "agent_prompt.txt"
@@ -196,4 +195,5 @@ def _extract_json(text: str) -> str:
                 if not stack:
                     return text[start : i + 1]
         i += 1
+
     return None
